@@ -1,117 +1,257 @@
-![introduction slider](https://user-images.githubusercontent.com/82075108/166870810-f2aafe55-a7bb-4a1d-83b9-1e6e8f8b8d0f.png)
+![introduction-slider](https://user-images.githubusercontent.com/82075108/186702717-b6ada231-12a8-44cf-9847-7dbc35292a1c.svg)
 
-[![rahul chouhan](https://user-images.githubusercontent.com/82075108/167239496-497f3135-a6b1-4a4c-985b-939e1537a5f9.png)](https://www.github.com/imRahulChouhan) _[![buy-me-a-coffee](https://user-images.githubusercontent.com/82075108/166093500-a61b8749-85d1-4206-a916-e534546c538b.svg)](https://buymeacoffee.com/rahulchouhan)_ _[![paypal](https://user-images.githubusercontent.com/82075108/166870820-8d619e80-3a3b-4bef-a3a8-6ee282f74da5.png)](https://paypal.me/imRahulChouhan)_
+[![chouhan-rahul](https://user-images.githubusercontent.com/82075108/182797956-c3db4825-97a8-462a-a89a-39772876bbd1.svg)](https://github.com/chouhan-rahul)
+_[![buymeacoffee](https://user-images.githubusercontent.com/82075108/182797941-5ad09afd-7c74-4085-8130-819402cf7eaa.svg)](https://www.buymeacoffee.com/rahulchouhan)_
+_[![ko-fi](https://user-images.githubusercontent.com/82075108/182797959-bd835cdb-7223-4b16-bf1e-284466d0658f.svg)](https://ko-fi.com/rahulchouhan)_
+_[![paypal](https://user-images.githubusercontent.com/82075108/182797963-09475375-9a0a-4342-8e9d-08037d4ba343.svg)](https://paypal.me/rahu1chouhan)_
+
+### Become a sponsor
+
+[![sponsor](https://user-images.githubusercontent.com/82075108/182797969-11208ddc-b84c-4618-8534-18388d24ac18.svg)](https://github.com/sponsors/chouhan-rahul)
 
 # Introduction Slider
 
 An introduction slider has some screens that can use to describe your application. You can describe your application's title, description, logo, etc. It comes with several features.
 
-# Sample screenshots are shown below
-
-![introduction slider](https://user-images.githubusercontent.com/82075108/166871455-a6ddc80e-ae61-41fe-bc12-1cea97fb3119.gif) *![introduction slider](https://user-images.githubusercontent.com/82075108/166871089-d2e27253-7568-4593-bceb-33254c334a2e.gif)* *![introduction slider](https://user-images.githubusercontent.com/82075108/166873265-6bc107ef-9a86-4ef1-9dd6-e601ffa62c60.gif)*
-
-# Getting Started
-
-Below is an example of how to implement IntroductionSlider in a Flutter application.
+Here is an example of how to implement IntroductionSlider in a Flutter application.
 
 ```dart
 IntroductionSlider(
-  onDone: SecondPage(),
-  items:[
+  items: [
     IntroductionSliderItem(
-      image: FlutterLogo(),
-      title: "Introduction Slider 1",
-      description: "This is a description of introduction slider 1.",
+      logo: FlutterLogo(),
+      title: Text("Title 1"),
+      backgroundColor: Colors.red,
     ),
     IntroductionSliderItem(
-      image: FlutterLogo(),
-      title: "Introduction Slider 2",
-      description: "This is a description of introduction slider 2.",
+      logo: FlutterLogo(),
+      title: Text("Title 2"),
+      backgroundColor: Colors.green,
     ),
     IntroductionSliderItem(
-      image: FlutterLogo(),
-      title: "Introduction Slider 3",
-      description: "This is a description of introduction slider. 3",
+      logo: FlutterLogo(),
+      title: Text("Title 3"),
+      backgroundColor: Colors.blue,
     ),
   ],
-);
+  done: Done(
+    child: Icon(Icons.done),
+    home: HomePage(),
+  ),
+  next: Next(child: Icon(Icons.arrow_forward)),
+  back: Back(child: Icon(Icons.arrow_back)),
+  dotIndicator: DotIndicator(),
+)
 ```
 
-## To change the properties of button
-This example demonstrates how to modify default button properties. The only thing need to write in `onDone` is the name of the page you want to redirect. Don't need to write complete navigator code.
+## IntroductionSlider Properties
+
+| Property         | Type                                                    | Description                                                                                              |
+| ---------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| items:           | List<[IntroductionSliderItem](#introductionslideritem)> | Defines the appearance of the introduction slider items that are arrayed within the introduction slider. |
+| done:            | [Done](#done)                                           | The [Done](#done) that is used to navigate to the target page.                                           |
+| back:            | [Back](#back)                                           | The [Back](#back) that is used to navigate to the previous page.                                         |
+| next:            | [Next](#next)                                           | The [Next](#next) that is used to navigate to the next page.                                             |
+| initialPage:     | int                                                     | The initial page index of the introduction slider.                                                       |
+| doIndicator:     | [DotIndicator](#dotindicator)                           | The [DotIndicator](#dotindicator) that is used to indicate dots.                                         |
+| physics:         | ScrollPhysics                                           | Determines the physics of a `[Scrollable]` widget.                                                       |
+| scrollDirection: | Axis                                                    | The two cardinal directions in two dimensions.                                                           |
+| showStatusBar:   | bool                                                    | Show and hide app status/navigation bar on the introduction slider.                                      |
+
+# IntroductionSliderItem
+It is used to describe the title, subtitle, logo, etc. of the introduction slider.
+
+Here is an example of how to implement `IntroductionSliderItem` with background color. 
+
+![introduction_slider](https://user-images.githubusercontent.com/82075108/188277965-b417876f-2d40-4fc8-92ff-5c33dfbd2903.gif)
+
+```dart
+IntroductionSliderItem(
+  logo: FlutterLogo(),
+  title: Text("Introduction Slider Title"),
+  subtitle: Text("Introduction Slider Subtitle"),
+  backgroundColor: Colors.red
+)
+```
+
+Here is an example of how to implement `IntroductionSliderItem` with gradient background. 
+
+![introduction_slider](https://user-images.githubusercontent.com/82075108/188277978-ff74f87c-f642-4d40-81ff-60750e8cd90c.gif)
+
+
+```dart
+IntroductionSliderItem(
+  logo: FlutterLogo(),
+  title: Text("Introduction Slider Title"),
+  subtitle: Text("Introduction Slider Subtitle"),
+  gradient: LinearGradient(
+    colors: [
+      Colors.cyan,
+      Colors.indigo,
+    ],
+  ),
+)
+```
+
+Here is an example of how to implement `IntroductionSliderItem` with background image. 
+
+![introduction_slider](https://user-images.githubusercontent.com/82075108/188277974-e66b932e-5e1c-46f2-8711-628ee54099d5.gif)
+
+```dart
+IntroductionSliderItem(
+  logo: FlutterLogo(),
+  title: Text("Introduction Slider Title"),
+  subtitle: Text("Introduction Slider Subtitle"),
+  backgroundImageDecoration: BackgroundImageDecoration(
+    image: AssetImage("assets/images/larry_page.jpg"),
+    colorFilter: ColorFilter.mode(
+      Colors.black.withOpacity(0.6),
+      BlendMode.darken,
+    ),
+    fit: BoxFit.cover,
+    opacity: 1.0,
+  ),
+)
+```
+
+## IntroductionSliderItem Properties
+
+| Property                   | Type                                                                  | Description                                     |
+| -------------------------- | --------------------------------------------------------------------- | ----------------------------------------------- |
+| logo:                      | Widget                                                                | Logo of the introduction slider.                |
+| title:                     | Widget                                                                | Title of the introduction slider.               |
+| subtitle:                  | Widget                                                                | Subtitle of the introduction slider.            |
+| backgroundColor:           | Color                                                                 | Background color of the introduction slider.    |
+| backgroundImageDecoration: | [BackgroundImageDecoration](#properties-of-backgroundimagedecoration) | Background image of the introduction slider.    |
+| gradient:                  | Gradient                                                              | Gradient background of the introduction slider. |
+
+## Properties of BackgroundImageDecoration
+
+| Property     | Type          | Description                                                                |
+| ------------ | ------------- | -------------------------------------------------------------------------- |
+| image:       | ImageProvider | Typically this will be an AssetImage or a NetworkImage                     |
+| fit:         | BoxFit        | Fill the target box by distorting the source's aspect ratio.               |
+| colorFilter: | ColorFilter   | A color filter is a function that takes two colors, and outputs one color. |
+| opacity:     | double        | Used to set the filterQuality of the image.                                |
+
+# Scroll / Gesture control 
+A page can be scrolled horizontally or vertically. The default scroll direction is horizontal. You can change the scroll direction by setting the `scrollDirection` property.
+
+![introdution slider](https://user-images.githubusercontent.com/82075108/188283783-ac735a94-dcfd-4113-832a-2e14a1084eaa.gif)
+
 ```dart
 IntroductionSlider(
-  skip: Text("SKIP"),
-  next: Text("NEXT"),
-  done: Text("DONE"),
-  onDone: SecondPage(),
-  items:items,
-);
+  scrollDirection: Axis.vertical,
+)
 ```
-
-## To change the properties of dot indicator
+You can also control the introduction slider by gestures. You can set the `physics` property to `NeverScrollableScrollPhysics()` to disable the gesture slide.
 
 ```dart
 IntroductionSlider(
-  selectedDotColor: Colors.red,
-  unselectedDotColor: Colors.blue,
-  dotSize: 10.0,
-  items:items,
-);
+  physics: NeverScrollableScrollPhysics(),
+)
 ```
 
-## How to control scrolling?
+# DotIndicator
+The dot indicator is used to indicate the current page. You can change the color of the dot indicator and the size of the dot indicator.
 
-An example of how to control swipe gestures and change scroll direction. In `isScrollable`, it uses a boolean value to control changing pages with swipe. By default `isScrollable` is true. Scroll direction can be changed by using `scrollDirection`.
+```dart
+DotIndicator(
+  selectedColor: Colors.blue,
+  unselectedColor: Colors.blue.withOpacity(0.5),
+  size: 8.0
+)
+```
+
+## DotIndicator Properties
+
+| Property         | Type   | Description                      |
+| ---------------- | ------ | -------------------------------- |
+| selectedColor:   | Color  | The selected color of the dot.   |
+| unselectedColor: | Color  | The unselected color of the dot. |
+| size:            | double | The size of the dot.             |
+
+# Done
+
+`Done` has some more properties which are used to redirect to the target page with an animation effect. `animationDuration` is used to set the duration of the animation and `curve` is used to set the animation curve.
+
+```dart
+Done(
+  child: Icon(Icons.done),
+  curve: Curves.easeInOut,
+  animationDuration: Duration(milliseconds: 350),
+  home: HomePage(),
+)
+```
+
+## Done Properties
+
+| Property           | Type        | Description                                                                                                                                 |
+| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| child:             | Widget      | Done button's child widget.                                                                                                                 |
+| home:              | Widget      | Redirects to the target page.                                                                                                               |
+| style:             | ButtonStyle | Many of the ButtonStyle properties are `[MaterialStateProperty]` objects which resolve to different values depending on the button's state. |
+| curve:             | Curve       | A collection of common animation easing curves.                                                                                             |
+| animationDuration: | Duration    | The animation lasts for the given duration and follows the given curve. The returned `[Future]` resolves when the animation completes.      |
+
+# Next
+
+`Next` has some more properties which are used to redirect to the next slide page with an animation effect. `animationDuration` is used to set the duration of the animation and `curve` is used to set the animation curve.
+
+```dart
+Next(
+  child: Icon(Icons.done),
+  curve: Curves.easeInOut,
+  animationDuration: Duration(milliseconds: 350),
+)
+```
+
+## Next Properties
+
+| Property           | Type        | Description                                                                                                                                 |
+| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| child:             | Widget      | Next button's child widget.                                                                                                                 |
+| style:             | ButtonStyle | Many of the ButtonStyle properties are `[MaterialStateProperty]` objects which resolve to different values depending on the button's state. |
+| curve:             | Curve       | A collection of common animation easing curves.                                                                                             |
+| animationDuration: | Duration    | The animation lasts for the given duration and follows the given curve. The returned `[Future]` resolves when the animation completes.      |
+
+# Back
+
+`Back` has some more properties which are used to redirect to the previous slide page with an animation effect. `animationDuration` is used to set the duration of the animation and `curve` is used to set the animation curve.
+
+```dart
+Back(
+  child: Icon(Icons.done),
+  curve: Curves.easeInOut,
+  animationDuration: Duration(milliseconds: 350),
+)
+```
+
+## Back Properties
+
+| Property           | Type        | Description                                                                                                                                 |
+| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| child:             | Widget      | Next button's child widget.                                                                                                                 |
+| style:             | ButtonStyle | Many of the ButtonStyle properties are `[MaterialStateProperty]` objects which resolve to different values depending on the button's state. |
+| curve:             | Curve       | A collection of common animation easing curves.                                                                                             |
+| animationDuration: | Duration    | The animation lasts for the given duration and follows the given curve. The returned `[Future]` resolves when the animation completes.      |
+
+# Hide/Show status bar and navigation bar
+
+By default `showStatusBar` is false. You can show status bar and navigation bar by setting `showStatusBar` to true.
 
 ```dart
 IntroductionSlider(
-  isScrollable:false,
-  scrollDirection:Axis.vertical,
-  items:items,
-);
+  showStatusBar: true,
+)
 ```
-
-# Properties
-
-
-- ## IntroductionSlider Properties
-
-    | Property                    | Type                           | Description                                                                                              |
-    | --------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------- |
-    | items:                      | List<`IntroductionSliderItem`> | Defines the appearance of the introduction slider items that are arrayed within the introduction slider. |
-    | titleTextStyle:             | TextStyle                      | To format and paint title text.                                                                          |
-    | descriptionTextStyle:       | TextStyle                      | To format and paint description text.                                                                    |
-    | skip:                       | Widget                         | Skip button widget. It is recommended to use a Text widget.                                              |
-    | showSkipButton:             | bool                           | To hide and show skip button.                                                                            |
-    | next:                       | Widget                         | Next button widget. It is recommended to use a Text widget.                                              |
-    | done:                       | Widget                         | Done button widget. It is recommended to use a Text widget.                                              |
-    | onDone:                     | Widget                         | Redirect to another page, When done button is pressed.                                                   |
-    | isScrollable:               | bool                           | Use when enable or disable scroll.                                                                       |
-    | scrollDirection:            | Axis                           | For the scroll direction.                                                                                |
-    | backgroundImageFit:         | BoxFit                         | Applies the sizing semantics of these values.                                                            |
-    | backgroundImageOpacity:     | double                         | To set background image opacity.                                                                         |
-    | backgroundImageColorFilter: | ColorFilter                    | A color filter is a function that takes two colors, and outputs one color.                               |
-    | selectedDotColor:           | Color                          | The color of selected dot.                                                                               |
-    | unselectedDotColor:         | Color                          | The color of unselected dot.                                                                             |
-    | dotSize:                    | double                         | The dot size.                                                                                            |
-    
-  
-- ## IntroductionSliderItem Properties
-
-  
-    | Property         | Type   | Description                            |
-    | ---------------- | ------ | -------------------------------------- |
-    | image:           | Widget | To display the logo/image of the page. |
-    | title:           | String | To display the page title.             |
-    | description:     | String | To display the page description.       |
-    | backgroundColor: | Color  | To set background color of page.       |
-    | backgroundImage: | Image  | To set background image of page.       |
 
 # Report bugs or issues
 
-You are welcome to open a *[ticket](https://github.com/imRahulChouhan/introduction_slider/issues)* on github if any problems arise. New ideas are always welcome.
+You are welcome to open a _[ticket](https://github.com/chouhan-rahul/introduction_slider/issues)_ on github if any problems arise. New ideas are always welcome.
 
 # Copyright and License
 
->Copyright © 2022 **[Rahul Chouhan](https://rahulchouhan.me)**. Licensed under the *[MIT LICENSE](https://github.com/imRahulChouhan/introduction_slider/blob/main/LICENSE)*.
+> Copyright © 2022 **[Rahul Chouhan](https://rahulchouhan.me)**. Licensed under the _[MIT LICENSE](https://github.com/chouhan-rahul/introduction_slider/blob/main/LICENSE)_.
+
+#### 3d Illustration by [Icons 8](https://icons8.com/illustrations/author/zD2oqC8lLBBA) from [Ouch!](https://icons8.com/illustrations)

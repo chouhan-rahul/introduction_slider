@@ -1,8 +1,8 @@
 name: introduction_slider
 description: Introduction/Onboarding slider package for flutter application with several features.
-version: 1.0.0
+version: 2.0.0
 homepage: https://rahulchouhan.me
-repository: https://github.com/imRahulChouhan/introduction_slider
+repository: https://github.com/chouhan-rahul/introduction_slider
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -15,4 +15,4 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.1
