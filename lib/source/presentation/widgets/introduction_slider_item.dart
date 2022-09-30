@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '/utils/background_decoration.dart';
+import './widgets.dart';
 
 class IntroductionSliderItem {
   /// Logo of the introduction slider.
