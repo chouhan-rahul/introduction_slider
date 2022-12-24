@@ -30,6 +30,7 @@ class IntroductionSlider extends StatefulWidget {
 
   /// Show and hide app status/navigation bar on the introduction slider.
   final bool showStatusBar;
+  final Widget? skip;
 
   /// The initial page index of the introduction slider.
   int initialPage;
@@ -45,6 +46,7 @@ class IntroductionSlider extends StatefulWidget {
     required this.done,
     this.next,
     this.dotIndicator,
+    this.skip,
   })  : assert((initialPage <= items.length - 1) && (initialPage >= 0),
             "initialPage can't be less than 0 or greater than items length."),
         super(key: key);
@@ -93,6 +95,8 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
   Widget build(BuildContext context) {
     final lastIndex = widget.initialPage == widget.items.length - 1;
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      floatingActionButton: widget.skip,
       body: Stack(
         alignment: AlignmentDirectional.center,
         children: [
