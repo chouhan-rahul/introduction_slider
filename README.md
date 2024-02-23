@@ -52,6 +52,7 @@ IntroductionSlider(
 | done:            | [Done](#done)                                           | The [Done](#done) that is used to navigate to the target page.                                           |
 | back:            | [Back](#back)                                           | The [Back](#back) that is used to navigate to the previous page.                                         |
 | next:            | [Next](#next)                                           | The [Next](#next) that is used to navigate to the next page.                                             |
+| skip:            | [Back](#skip)                                           | The [Skip](#skip) that is used to navigate to the previous page.                                         |
 | initialPage:     | int                                                     | The initial page index of the introduction slider.                                                       |
 | doIndicator:     | [DotIndicator](#dotindicator)                           | The [DotIndicator](#dotindicator) that is used to indicate dots.                                         |
 | physics:         | ScrollPhysics                                           | Determines the physics of a `[Scrollable]` widget.                                                       |
@@ -232,6 +233,27 @@ Back(
 | Property           | Type        | Description                                                                                                                                 |
 | ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | child:             | Widget      | Next button's child widget.                                                                                                                 |
+| style:             | ButtonStyle | Many of the ButtonStyle properties are `[MaterialStateProperty]` objects which resolve to different values depending on the button's state. |
+| curve:             | Curve       | A collection of common animation easing curves.                                                                                             |
+| animationDuration: | Duration    | The animation lasts for the given duration and follows the given curve. The returned `[Future]` resolves when the animation completes.      |
+
+# Skip
+
+`Skip` has some more properties which are used to redirect to the last slide page with an animation effect. `animationDuration` is used to set the duration of the animation and `curve` is used to set the animation curve.
+
+```dart
+Skip(
+  child: Icon(Icons.done),
+  curve: Curves.easeInOut,
+  animationDuration: Duration(seconds: 1),
+)
+```
+
+## Skip Properties
+
+| Property           | Type        | Description                                                                                                                                 |
+| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| child:             | Widget      | Skip button's child widget.                                                                                                                 |
 | style:             | ButtonStyle | Many of the ButtonStyle properties are `[MaterialStateProperty]` objects which resolve to different values depending on the button's state. |
 | curve:             | Curve       | A collection of common animation easing curves.                                                                                             |
 | animationDuration: | Duration    | The animation lasts for the given duration and follows the given curve. The returned `[Future]` resolves when the animation completes.      |
