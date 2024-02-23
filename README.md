@@ -52,7 +52,7 @@ IntroductionSlider(
 | done:            | [Done](#done)                                           | The [Done](#done) that is used to navigate to the target page.                                           |
 | back:            | [Back](#back)                                           | The [Back](#back) that is used to navigate to the previous page.                                         |
 | next:            | [Next](#next)                                           | The [Next](#next) that is used to navigate to the next page.                                             |
-| skip:            | [Back](#skip)                                           | The [Skip](#skip) that is used to navigate to the previous page.                                         |
+| skip:            | [Skip](#skip)                                           | The [Skip](#skip) that is used to navigate to the previous page.                                         |
 | initialPage:     | int                                                     | The initial page index of the introduction slider.                                                       |
 | doIndicator:     | [DotIndicator](#dotindicator)                           | The [DotIndicator](#dotindicator) that is used to indicate dots.                                         |
 | physics:         | ScrollPhysics                                           | Determines the physics of a `[Scrollable]` widget.                                                       |
