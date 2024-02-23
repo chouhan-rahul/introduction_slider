@@ -1,3 +1,6 @@
+# 2.0.2
+
+- Implemented a new feature 
 ## 2.0.1
 
 - Implemented clean architecture.

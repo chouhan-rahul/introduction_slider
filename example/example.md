@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         child: Icon(Icons.done),
         home: HomePage(),
       ),
+      skip: Skip(child: Text('Skip')),
       next: Next(child: Icon(Icons.arrow_forward)),
       back: Back(child: Icon(Icons.arrow_back)),
       dotIndicator: DotIndicator(),
