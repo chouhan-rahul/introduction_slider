@@ -19,6 +19,9 @@ class IntroductionSlider extends StatefulWidget {
   /// The [Next] that is used to navigate to the next page.
   final Next? next;
 
+  /// The [Skip] that is used to navigate to the next page.
+  final Skip? skip;
+
   /// The [Done] that is used to navigate to the target page.
   final Done done;
 
@@ -43,6 +46,7 @@ class IntroductionSlider extends StatefulWidget {
     this.scrollDirection = Axis.horizontal,
     this.back,
     required this.done,
+    this.skip,
     this.next,
     this.dotIndicator,
   })  : assert((initialPage <= items.length - 1) && (initialPage >= 0),
@@ -91,7 +95,11 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
 
   @override
   Widget build(BuildContext context) {
+    /// Bool used to see if you are in the last page
     final lastIndex = widget.initialPage == widget.items.length - 1;
+    /// Number of the last page
+    final lastPage = widget.items.length - 1;
+
     return Scaffold(
       body: Stack(
         alignment: AlignmentDirectional.center,
@@ -154,6 +162,23 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
                     ),
                   ),
                 ),
+          Positioned(
+            top: 80,
+            right: 30,
+            child:
+            (widget.items.length <= 2)
+                ? const SizedBox()
+              : (lastIndex)
+                ? const SizedBox()
+                : TextButton(
+                onPressed: () => pageController.animateToPage(widget.items.length -1,
+                duration: widget.skip!.animationDuration!,
+                curve: widget.skip!.curve!
+              ),
+              style: widget.skip!.style,
+              child: widget.skip!.child,
+            ),
+          ),
           Positioned(
             bottom: 35,
             child: SizedBox(
