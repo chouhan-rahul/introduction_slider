@@ -1,5 +1,7 @@
 # Introduction Slider Extended
 
+![Introduction Slider](./Example.gif)
+
 This library is a fork of the  _[Introduction_Slider](https://github.com/chouhan-rahul/introduction_slider/)_ library
 
 An introduction slider has some screens that can use to describe your application. You can describe your application's title, description, logo, etc. It comes with several features.
@@ -126,8 +128,6 @@ IntroductionSliderItem(
 
 # Scroll / Gesture control
 A page can be scrolled horizontally or vertically. The default scroll direction is horizontal. You can change the scroll direction by setting the `scrollDirection` property.
-
-![introdution slider](https://user-images.githubusercontent.com/82075108/188283783-ac735a94-dcfd-4113-832a-2e14a1084eaa.gif)
 
 ```dart
 IntroductionSlider(
