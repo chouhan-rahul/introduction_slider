@@ -47,7 +47,7 @@ IntroductionSlider(
 | onDone:          | VoidCallback                                            | The [onDone](#onDone) action that is performed when the done button is pressed                           |
 | back:            | [Back](#back)                                           | The [Back](#back) that is used to navigate to the previous page.                                         |
 | next:            | [Next](#next)                                           | The [Next](#next) that is used to navigate to the next page.                                             |
-| skip:            | [Back](#skip)                                           | The [Skip](#skip) that is used to navigate to the previous page.                                         |
+| skip:            | [Skip](#skip)                                           | The [Skip](#skip) that is used to navigate to the previous page.                                         |
 | initialPage:     | int                                                     | The initial page index of the introduction slider.                                                       |
 | dotIndicator:    | [DotIndicator](#dotindicator)                           | The [DotIndicator](#dotindicator) that is used to indicate dots.                                         |
 | physics:         | ScrollPhysics                                           | Determines the physics of a `[Scrollable]` widget.                                                       |
@@ -273,5 +273,5 @@ You are welcome to open a _[ticket](https://github.com/codexnabbo/introduction_s
 
 ### Become a sponsor
 
-[![chouhan-rahul](https://user-images.githubusercontent.com/82075108/182797956-c3db4825-97a8-462a-a89a-39772876bbd1.svg)](https://github.com/codexnabbo)
+[![riccardo pasquetto](https://user-images.githubusercontent.com/82075108/182797956-c3db4825-97a8-462a-a89a-39772876bbd1.svg)](https://github.com/codexnabbo)
 _[![buymeacoffee](https://user-images.githubusercontent.com/82075108/182797941-5ad09afd-7c74-4085-8130-819402cf7eaa.svg)](https://www.buymeacoffee.com/riccardopasquetto)_
