@@ -14,23 +14,29 @@ class MyApp extends StatelessWidget {
         IntroductionSliderItem(
           logo: FlutterLogo(),
           title: Text("Title 1"),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.white,
         ),
         IntroductionSliderItem(
           logo: FlutterLogo(),
           title: Text("Title 2"),
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.pink,
         ),
         IntroductionSliderItem(
           logo: FlutterLogo(),
           title: Text("Title 3"),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.grey,
         ),
       ],
       done: Done(
         child: Icon(Icons.done),
-        home: HomePage(),
       ),
+      onDone: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
+      },
+      skip: Skip(child: Text('Skip')),
       next: Next(child: Icon(Icons.arrow_forward)),
       back: Back(child: Icon(Icons.arrow_back)),
       dotIndicator: DotIndicator(),

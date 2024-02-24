@@ -1,15 +1,8 @@
-![introduction-slider](https://user-images.githubusercontent.com/82075108/186702717-b6ada231-12a8-44cf-9847-7dbc35292a1c.svg)
+# Introduction Slider Extended
 
-[![chouhan-rahul](https://user-images.githubusercontent.com/82075108/182797956-c3db4825-97a8-462a-a89a-39772876bbd1.svg)](https://github.com/chouhan-rahul)
-_[![buymeacoffee](https://user-images.githubusercontent.com/82075108/182797941-5ad09afd-7c74-4085-8130-819402cf7eaa.svg)](https://www.buymeacoffee.com/rahulchouhan)_
-_[![ko-fi](https://user-images.githubusercontent.com/82075108/182797959-bd835cdb-7223-4b16-bf1e-284466d0658f.svg)](https://ko-fi.com/rahulchouhan)_
-_[![paypal](https://user-images.githubusercontent.com/82075108/182797963-09475375-9a0a-4342-8e9d-08037d4ba343.svg)](https://paypal.me/rahulvchouhan)_
+![Introduction Slider](./Example.gif)
 
-### Become a sponsor
-
-[![sponsor](https://user-images.githubusercontent.com/82075108/182797969-11208ddc-b84c-4618-8534-18388d24ac18.svg)](https://github.com/sponsors/chouhan-rahul)
-
-# Introduction Slider
+This library is a fork of the  _[Introduction_Slider](https://github.com/chouhan-rahul/introduction_slider/)_ library
 
 An introduction slider has some screens that can use to describe your application. You can describe your application's title, description, logo, etc. It comes with several features.
 
@@ -21,23 +14,26 @@ IntroductionSlider(
     IntroductionSliderItem(
       logo: FlutterLogo(),
       title: Text("Title 1"),
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.white,
     ),
     IntroductionSliderItem(
       logo: FlutterLogo(),
       title: Text("Title 2"),
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.pink,
     ),
     IntroductionSliderItem(
       logo: FlutterLogo(),
       title: Text("Title 3"),
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.grey,
     ),
   ],
   done: Done(
     child: Icon(Icons.done),
-    home: HomePage(),
   ),
+  onDone: () {
+    /// Your route for the next page or the action you want
+    /// perform pressing the done button.
+},
   next: Next(child: Icon(Icons.arrow_forward)),
   back: Back(child: Icon(Icons.arrow_back)),
   dotIndicator: DotIndicator(),
@@ -47,13 +43,15 @@ IntroductionSlider(
 ## IntroductionSlider Properties
 
 | Property         | Type                                                    | Description                                                                                              |
-| ---------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+|------------------|---------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | items:           | List<[IntroductionSliderItem](#introductionslideritem)> | Defines the appearance of the introduction slider items that are arrayed within the introduction slider. |
 | done:            | [Done](#done)                                           | The [Done](#done) that is used to navigate to the target page.                                           |
+| onDone:          | VoidCallback                                            | The [onDone](#onDone) action that is performed when the done button is pressed                           |
 | back:            | [Back](#back)                                           | The [Back](#back) that is used to navigate to the previous page.                                         |
 | next:            | [Next](#next)                                           | The [Next](#next) that is used to navigate to the next page.                                             |
+| skip:            | [Skip](#skip)                                           | The [Skip](#skip) that is used to navigate to the previous page.                                         |
 | initialPage:     | int                                                     | The initial page index of the introduction slider.                                                       |
-| doIndicator:     | [DotIndicator](#dotindicator)                           | The [DotIndicator](#dotindicator) that is used to indicate dots.                                         |
+| dotIndicator:    | [DotIndicator](#dotindicator)                           | The [DotIndicator](#dotindicator) that is used to indicate dots.                                         |
 | physics:         | ScrollPhysics                                           | Determines the physics of a `[Scrollable]` widget.                                                       |
 | scrollDirection: | Axis                                                    | The two cardinal directions in two dimensions.                                                           |
 | showStatusBar:   | bool                                                    | Show and hide app status/navigation bar on the introduction slider.                                      |
@@ -61,9 +59,7 @@ IntroductionSlider(
 # IntroductionSliderItem
 It is used to describe the title, subtitle, logo, etc. of the introduction slider.
 
-Here is an example of how to implement `IntroductionSliderItem` with background color. 
-
-![introduction_slider](https://user-images.githubusercontent.com/82075108/188277965-b417876f-2d40-4fc8-92ff-5c33dfbd2903.gif)
+Here is an example of how to implement `IntroductionSliderItem` with background color.
 
 ```dart
 IntroductionSliderItem(
@@ -74,9 +70,7 @@ IntroductionSliderItem(
 )
 ```
 
-Here is an example of how to implement `IntroductionSliderItem` with gradient background. 
-
-![introduction_slider](https://user-images.githubusercontent.com/82075108/188277978-ff74f87c-f642-4d40-81ff-60750e8cd90c.gif)
+Here is an example of how to implement `IntroductionSliderItem` with gradient background.
 
 
 ```dart
@@ -93,9 +87,7 @@ IntroductionSliderItem(
 )
 ```
 
-Here is an example of how to implement `IntroductionSliderItem` with background image. 
-
-![introduction_slider](https://user-images.githubusercontent.com/82075108/188277974-e66b932e-5e1c-46f2-8711-628ee54099d5.gif)
+Here is an example of how to implement `IntroductionSliderItem` with background image.
 
 ```dart
 IntroductionSliderItem(
@@ -103,7 +95,7 @@ IntroductionSliderItem(
   title: Text("Introduction Slider Title"),
   subtitle: Text("Introduction Slider Subtitle"),
   backgroundImageDecoration: BackgroundImageDecoration(
-    image: AssetImage("assets/images/larry_page.jpg"),
+    image: AssetImage("path/to/your/image.jpg"),
     colorFilter: ColorFilter.mode(
       Colors.black.withOpacity(0.6),
       BlendMode.darken,
@@ -134,10 +126,8 @@ IntroductionSliderItem(
 | colorFilter: | ColorFilter   | A color filter is a function that takes two colors, and outputs one color. |
 | opacity:     | double        | Used to set the filterQuality of the image.                                |
 
-# Scroll / Gesture control 
+# Scroll / Gesture control
 A page can be scrolled horizontally or vertically. The default scroll direction is horizontal. You can change the scroll direction by setting the `scrollDirection` property.
-
-![introdution slider](https://user-images.githubusercontent.com/82075108/188283783-ac735a94-dcfd-4113-832a-2e14a1084eaa.gif)
 
 ```dart
 IntroductionSlider(
@@ -149,6 +139,17 @@ You can also control the introduction slider by gestures. You can set the `physi
 ```dart
 IntroductionSlider(
   physics: NeverScrollableScrollPhysics(),
+)
+```
+
+# onDone
+When u press on the done button these are the action you will perform
+
+```dart
+IntroductionSlider(
+  onDone: () {
+    print('Press Done');
+},
 )
 ```
 
@@ -178,9 +179,6 @@ DotIndicator(
 ```dart
 Done(
   child: Icon(Icons.done),
-  curve: Curves.easeInOut,
-  animationDuration: Duration(milliseconds: 350),
-  home: HomePage(),
 )
 ```
 
@@ -189,10 +187,8 @@ Done(
 | Property           | Type        | Description                                                                                                                                 |
 | ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | child:             | Widget      | Done button's child widget.                                                                                                                 |
-| home:              | Widget      | Redirects to the target page.                                                                                                               |
 | style:             | ButtonStyle | Many of the ButtonStyle properties are `[MaterialStateProperty]` objects which resolve to different values depending on the button's state. |
-| curve:             | Curve       | A collection of common animation easing curves.                                                                                             |
-| animationDuration: | Duration    | The animation lasts for the given duration and follows the given curve. The returned `[Future]` resolves when the animation completes.      |
+
 
 # Next
 
@@ -236,6 +232,27 @@ Back(
 | curve:             | Curve       | A collection of common animation easing curves.                                                                                             |
 | animationDuration: | Duration    | The animation lasts for the given duration and follows the given curve. The returned `[Future]` resolves when the animation completes.      |
 
+# Skip
+
+`Skip` has some more properties which are used to redirect to the last slide page with an animation effect. `animationDuration` is used to set the duration of the animation and `curve` is used to set the animation curve.
+
+```dart
+Skip(
+  child: Icon(Icons.done),
+  curve: Curves.easeInOut,
+  animationDuration: Duration(seconds: 1),
+)
+```
+
+## Skip Properties
+
+| Property           | Type        | Description                                                                                                                                 |
+| ------------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| child:             | Widget      | Skip button's child widget.                                                                                                                 |
+| style:             | ButtonStyle | Many of the ButtonStyle properties are `[MaterialStateProperty]` objects which resolve to different values depending on the button's state. |
+| curve:             | Curve       | A collection of common animation easing curves.                                                                                             |
+| animationDuration: | Duration    | The animation lasts for the given duration and follows the given curve. The returned `[Future]` resolves when the animation completes.      |
+
 # Hide/Show status bar and navigation bar
 
 By default `showStatusBar` is false. You can show status bar and navigation bar by setting `showStatusBar` to true.
@@ -248,10 +265,13 @@ IntroductionSlider(
 
 # Report bugs or issues
 
-You are welcome to open a _[ticket](https://github.com/chouhan-rahul/introduction_slider/issues)_ on github if any problems arise. New ideas are always welcome.
+You are welcome to open a _[ticket](https://github.com/codexnabbo/introduction_slider/issues)_ on github if any problems arise. New ideas are always welcome.
 
 # Copyright and License
 
-> Copyright © 2022 **[Rahul Chouhan](https://rahulchouhan.me)**. Licensed under the _[MIT LICENSE](https://github.com/chouhan-rahul/introduction_slider/blob/main/LICENSE)_.
+> Copyright © 2024 Riccardo Pasquetto. Licensed under the _[MIT LICENSE](https://github.com/codexnabbo/introduction_slider/blob/main/LICENSE)_.
 
-#### 3d Illustration by [Icons 8](https://icons8.com/illustrations/author/zD2oqC8lLBBA) from [Ouch!](https://icons8.com/illustrations)
+### Become a sponsor
+
+[![riccardo pasquetto](./github_logo.svg)](https://github.com/codexnabbo)
+_[![buymeacoffee](https://user-images.githubusercontent.com/82075108/182797941-5ad09afd-7c74-4085-8130-819402cf7eaa.svg)](https://www.buymeacoffee.com/riccardopasquetto)_
