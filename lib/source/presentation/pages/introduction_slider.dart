@@ -34,6 +34,9 @@ class IntroductionSlider extends StatefulWidget {
   /// Show and hide app status/navigation bar on the introduction slider.
   final bool showStatusBar;
 
+  /// The Function executed when the user press on Done.
+  final VoidCallback? onDone;
+
   /// The initial page index of the introduction slider.
   int initialPage;
 
@@ -46,6 +49,7 @@ class IntroductionSlider extends StatefulWidget {
     this.scrollDirection = Axis.horizontal,
     this.back,
     required this.done,
+    required this.onDone,
     this.skip,
     this.next,
     this.dotIndicator,
@@ -198,35 +202,7 @@ class _IntroductionSliderState extends State<IntroductionSlider> {
                         ),
                   lastIndex
                       ? TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pushReplacement(
-                              PageRouteBuilder(
-                                transitionDuration:
-                                    widget.done.animationDuration!,
-                                transitionsBuilder: (context, animation,
-                                    secondAnimation, child) {
-                                  animation = CurvedAnimation(
-                                    parent: animation,
-                                    curve: widget.done.curve!,
-                                  );
-                                  return SlideTransition(
-                                    position: Tween<Offset>(
-                                      begin: widget.scrollDirection ==
-                                              Axis.vertical
-                                          ? const Offset(0, 1.0)
-                                          : const Offset(1.0, 0.0),
-                                      end: Offset.zero,
-                                    ).animate(animation),
-                                    child: child,
-                                  );
-                                },
-                                pageBuilder:
-                                    (context, animation, secondaryAnimation) {
-                                  return widget.done.home!;
-                                },
-                              ),
-                            );
-                          },
+                          onPressed: widget.onDone,
                           style: widget.done.style,
                           child: widget.done.child,
                         )
