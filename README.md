@@ -273,5 +273,5 @@ You are welcome to open a _[ticket](https://github.com/codexnabbo/introduction_s
 
 ### Become a sponsor
 
-[![riccardo pasquetto](./GitHub_Logo_White.png)](https://github.com/codexnabbo)
+[![riccardo pasquetto](./github_logo.svg)](https://github.com/codexnabbo)
 _[![buymeacoffee](https://user-images.githubusercontent.com/82075108/182797941-5ad09afd-7c74-4085-8130-819402cf7eaa.svg)](https://www.buymeacoffee.com/riccardopasquetto)_
